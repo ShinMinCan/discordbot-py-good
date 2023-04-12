@@ -96,6 +96,9 @@ async def on_message(message):
                     await message.channel.send(f'{member.mention} 출석체크 {attendance_count}회 달성! 이름이 변경되었습니다.')
                 except discord.errors.Forbidden:
                     await message.channel.send(f'{member.mention} 출석체크 {attendance_count}회 달성! 이름 변경 권한이 없습니다.')
+    else:
+        # 출석체크 이외의 모든 메시지는 자동으로 삭제
+        await message.delete()
 
 try:
     client.run(TOKEN)

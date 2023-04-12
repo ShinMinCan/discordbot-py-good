@@ -52,6 +52,12 @@ async def on_ready():
     
 @client.event
 async def on_message(message):
+    # 채널 ID를 여기에 입력합니다.
+    channel_id = 1095436552789823528
+    # 채널 ID가 일치하지 않으면 메시지를 처리하지 않습니다.
+    if message.channel.id != channel_id:
+        return
+    
     if message.content.startswith('!출석'):
         author_id = str(message.author.id)
         database = read_database()
